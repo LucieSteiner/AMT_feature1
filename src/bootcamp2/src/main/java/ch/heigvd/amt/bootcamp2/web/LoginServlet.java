@@ -8,6 +8,7 @@ package ch.heigvd.amt.bootcamp2.web;
 import ch.heigvd.amt.bootcamp2.services.UserManager;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +22,8 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 
    
-   
-   UserManager userManager = UserManager.getInstance();
+   @EJB
+   UserManager userManager;
    
 
    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

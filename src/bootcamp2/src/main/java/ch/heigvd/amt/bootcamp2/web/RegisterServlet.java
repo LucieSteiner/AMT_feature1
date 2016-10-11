@@ -8,6 +8,7 @@ package ch.heigvd.amt.bootcamp2.web;
 import ch.heigvd.amt.bootcamp2.services.UserManager;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author Lucie
  */
 public class RegisterServlet extends HttpServlet {
-
-  private UserManager userManager = UserManager.getInstance();
+  @EJB
+  private UserManager userManager;
   
   public RegisterServlet(){
    

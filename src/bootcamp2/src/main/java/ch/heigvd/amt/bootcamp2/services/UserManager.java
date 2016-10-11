@@ -8,23 +8,17 @@ package ch.heigvd.amt.bootcamp2.services;
 import ch.heigvd.amt.bootcamp2.model.User;
 import java.util.Map;
 import java.util.TreeMap;
+import javax.ejb.Singleton;
 
 /**
  *
  * @author Lucie
  */
+@Singleton
 public class UserManager {
-   private static UserManager instance = null;
+   
    Map<String, User> users = new TreeMap<String, User>();;
-   protected UserManager(){
-      
-   }
-   public static UserManager getInstance(){
-      if(instance == null){
-         instance = new UserManager();
-      }
-      return instance;
-   }
+   
    public boolean checkLogin(String username, String password){
       User user = users.get(username);
       return user != null && user.getPassword().equals(password);
