@@ -37,13 +37,8 @@ public class LoginServlet extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
-      if(request.getSession().getAttribute("user") == null){
-         request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
-      }
-      else{
-         request.getRequestDispatcher("/WEB-INF/pages/protected.jsp").forward(request, response);
-
-      }
+      request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
+      
    }
 
    /**
@@ -58,7 +53,12 @@ public class LoginServlet extends HttpServlet {
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
       
-      request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
+      if(userManager.checkLogin(request.getParameter("user"), request.getParameter("pwd"))){
+         request.getSession().setAttribute("user", request.getParameter("user"));
+         response.sendRedirect("protected");
+      }else{
+         request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
+      }
       
    }
 
