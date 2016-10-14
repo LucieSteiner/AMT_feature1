@@ -17,9 +17,9 @@
 <!-- Header -->
         <header id="header">
                 <div class="inner">
-                        <a href="index.html" class="logo">AMT</a>
+                        <a href="protected" class="logo">AMT</a>
                         <nav id="nav">
-                                <a href="index.html">Home</a>
+                                <a href="protected">Home</a>
                         </nav>
                         <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
                 </div>
@@ -32,6 +32,22 @@
          </section>
          <section id="welcome">
             <h2>Welcome ${sessionScope.user}!</h2>
+            <h3>Your information: </h3>
+            <table>
+               <tr>
+                  <td><label>Firstname: </label></td>
+                  <td>${sessionScope.fname}</td>
+               </tr>
+               <tr>
+                  <td><label>Lastname: </label></td>
+                  <td>${sessionScope.lname}</td>
+               </tr>
+               <tr>
+                  <td><label>Email: </label></td>
+                  <td>${sessionScope.email}</td>
+               </tr>
+            
+            </table>
             <form method="post">
                <input type="submit" name ="action" value="logout"/>
             </form>

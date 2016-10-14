@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.heigvd.amt.bootcamp2.services;
 
 import ch.heigvd.amt.bootcamp2.model.User;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import javax.ejb.Singleton;
@@ -17,19 +14,25 @@ import javax.ejb.Singleton;
 @Singleton
 public class UserManager {
    
-   Map<String, User> users = new TreeMap<String, User>();;
+   Map<String, User> users = new TreeMap<String, User>();
    
    public boolean checkLogin(String username, String password){
       User user = users.get(username);
       return user != null && user.getPassword().equals(password);
 
    }
-   public boolean register(String username, String password){
-      if(!users.containsKey(username)){
-         users.put(username, new User(username, password));
+   public boolean register(User user){
+      if(!users.containsKey(user.getUsername())){
+         users.put(user.getUsername(), user);
          return true;
       }
       return false;
+   }
+   public List<User> findAllUsers(){
+     return new ArrayList(users.values());
+   }
+   public User loadUser(String username){
+      return users.get(username);
    }
 }
 

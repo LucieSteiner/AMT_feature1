@@ -17,9 +17,9 @@
 <!-- Header -->
         <header id="header">
                 <div class="inner">
-                        <a href="index.html" class="logo">AMT</a>
+                        <a href="protected" class="logo">AMT</a>
                         <nav id="nav">
-                                <a href="index.html">Home</a>
+                                <a href="protected">Home</a>
                         </nav>
                         <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
                 </div>
@@ -39,7 +39,7 @@
                <input type="submit">
                
             </form>
-            <a href="register">No account yet? Resgister here</a>
+            <a href="register">No account yet? Register here</a>
          </section>
 <!-- Footer -->
         <footer id="footer">

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.heigvd.amt.bootcamp2.model;
 
 /**
@@ -12,6 +7,9 @@ package ch.heigvd.amt.bootcamp2.model;
 public class User {
    private String username;
    private String password;
+   private String firstName;
+   private String lastName;
+   private String email;
    
    public String getUsername(){
       return username;
@@ -19,9 +17,21 @@ public class User {
    public String getPassword(){
       return password;
    }
-   public User(String username, String password){
+   public String getFirstName(){
+      return firstName;
+   }
+   public String getLastName(){
+      return lastName;
+   }
+   public String getEmail(){
+      return email;
+   }
+   public User(String username, String password, String firstName, String lastName, String email){
       this.username = username;
       this.password = password;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
    }
    
 }

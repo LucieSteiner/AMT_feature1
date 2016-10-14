@@ -17,9 +17,9 @@
 <!-- Header -->
         <header id="header">
                 <div class="inner">
-                        <a href="index.html" class="logo">AMT</a>
+                        <a href="protected" class="logo">AMT</a>
                         <nav id="nav">
-                                <a href="index.html">Home</a>
+                                <a href="protected">Home</a>
                         </nav>
                         <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
                 </div>
@@ -31,11 +31,20 @@
             <p>An exclusive HEIG-VD course by Olivier Liechti</p>
          </section>
          <section id="register">
+            <p>${error}</p>
             <form method="post">
+               <label>Firstname</label>
+               <input type="text" name="fname"/>
+               <label>Lastname</label>
+               <input type="text" name="lname"/>
+               <label>Email</label>
+               <input type="text" name="email"/>
                <label>Username</label>
                <input type="text" name="user"/>
                <label>Password</label>
                <input type="password" name="pwd"/>
+               <label>Repeat password</label>
+               <input type="password" name="pwd_check"/><br/>
                <input type="submit">
                
             </form>

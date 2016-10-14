@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.heigvd.amt.bootcamp2.web;
 
 import ch.heigvd.amt.bootcamp2.services.UserManager;
@@ -26,7 +21,6 @@ public class LoginServlet extends HttpServlet {
    UserManager userManager;
    
 
-   // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
    /**
     * Handles the HTTP <code>GET</code> method.
     *
@@ -71,6 +65,6 @@ public class LoginServlet extends HttpServlet {
    @Override
    public String getServletInfo() {
       return "Short description";
-   }// </editor-fold>
+   }
 
 }
