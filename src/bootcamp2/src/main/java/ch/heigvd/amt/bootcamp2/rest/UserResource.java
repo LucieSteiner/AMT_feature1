@@ -2,7 +2,7 @@ package ch.heigvd.amt.bootcamp2.rest;
 
 import ch.heigvd.amt.bootcamp2.model.User;
 import ch.heigvd.amt.bootcamp2.rest.dto.UserDTO;
-import ch.heigvd.amt.bootcamp2.rest.dto.UserPassDTO;
+import ch.heigvd.amt.bootcamp2.rest.dto.UserRegistrationDTO;
 import ch.heigvd.amt.bootcamp2.services.UserManager;
 import java.net.URI;
 import java.util.List;
@@ -46,7 +46,7 @@ public class UserResource {
   }
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
-  public Response createUser(UserPassDTO userDTO) {
+  public Response createUser(UserRegistrationDTO userDTO) {
     User user = fromDTO(userDTO);
     userManager.register(user);
     String username = user.getUsername();
@@ -68,7 +68,7 @@ public class UserResource {
     User user = userManager.loadUser(username);
     return toDTO(user);
   }
-  public User fromDTO(UserPassDTO dto) {
+  public User fromDTO(UserRegistrationDTO dto) {
     return new User(dto.getUsername(), dto.getPassword(), dto.getFirstName(), dto.getLastName(), dto.getEmail());
   }
   public UserDTO toDTO(User user) {

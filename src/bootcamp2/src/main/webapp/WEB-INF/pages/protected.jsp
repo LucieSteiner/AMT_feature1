@@ -48,9 +48,8 @@
                </tr>
             
             </table>
-            <form method="post">
-               <input type="submit" name ="action" value="logout"/>
-            </form>
+               <a id="logout" href="logout">Logout</a>
+            
          </section>
 <!-- Footer -->
         <footer id="footer">

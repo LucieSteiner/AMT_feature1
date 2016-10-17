@@ -31,23 +31,20 @@
             <p>An exclusive HEIG-VD course by Olivier Liechti</p>
          </section>
          <section id="register">
-            <p>${error}</p>
-            <form method="post">
-               <label>Firstname</label>
-               <input type="text" name="fname"/>
-               <label>Lastname</label>
-               <input type="text" name="lname"/>
-               <label>Email</label>
-               <input type="text" name="email"/>
-               <label>Username</label>
-               <input type="text" name="user"/>
-               <label>Password</label>
-               <input type="password" name="pwd"/>
-               <label>Repeat password</label>
-               <input type="password" name="pwd_check"/><br/>
-               <input type="submit">
-               
-            </form>
+            <div class="login-card">
+               <h1>Register</h1><br>
+               <span>${error}</span>
+               <form method="post">
+                  <input type="text" name="fname" placeholder="Firstname"/>
+                  <input type="text" name="lname" placeholder="Lastname"/>
+                  <input type="text" name="email" placeholder="E-mail"/>
+                  <input type="text" name="user" placeholder="Username"/>
+                  <input type="password" name="pwd" placeholder="Password"/>
+                  <input type="password" name="pwd_check" placeholder="Repeat password"/><br/>
+                  <input type="submit">
+
+               </form>
+            </div>
          </section>
 <!-- Footer -->
         <footer id="footer">

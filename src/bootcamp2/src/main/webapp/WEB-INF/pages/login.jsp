@@ -31,15 +31,18 @@
             <p>An exclusive HEIG-VD course by Olivier Liechti</p>
          </section>
          <section id="login">
-            <form method="post">
-               <label>Username</label>
-               <input type="text" name="user"/>
-               <label>Password</label>
-               <input type="password" name="pwd"/>
-               <input type="submit">
-               
-            </form>
-            <a href="register">No account yet? Register here</a>
+            <div class="login-card">
+               <h1>Log-in</h1><br>
+               <form>
+                 <input type="text" name="user" placeholder="Username">
+                 <input type="password" name="pwd" placeholder="Password">
+                 <input type="submit" name="login" class="login login-submit" value="login">
+               </form>
+
+               <div class="login-help">
+                 <a href="register">No account yet? Register here</a>
+               </div>
+            </div>
          </section>
 <!-- Footer -->
         <footer id="footer">

@@ -4,12 +4,12 @@ package ch.heigvd.amt.bootcamp2.rest.dto;
  *
  * @author Lucie
  */
-public class UserPassDTO extends UserDTO{
+public class UserRegistrationDTO extends UserDTO{
    private String password;
-   public UserPassDTO(){
+   public UserRegistrationDTO(){
       super();
    }
-   public UserPassDTO(String username, String firstName, String lastName, String email, String password){
+   public UserRegistrationDTO(String username, String firstName, String lastName, String email, String password){
       super(username, firstName, lastName, email);
       this.password = password;
    }

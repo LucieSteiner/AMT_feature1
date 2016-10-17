@@ -27,26 +27,22 @@ public class ProtectedServlet extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
-      request.getRequestDispatcher("/WEB-INF/pages/protected.jsp").forward(request, response);
-
-   }
-
-   /**
-    * Handles the HTTP <code>POST</code> method.
-    *
-    * @param request servlet request
-    * @param response servlet response
-    * @throws ServletException if a servlet-specific error occurs
-    * @throws IOException if an I/O error occurs
-    */
-   @Override
-   protected void doPost(HttpServletRequest request, HttpServletResponse response)
-           throws ServletException, IOException {
-      if(request.getParameter("action").equals("logout")){
-         request.getSession().removeAttribute("user");
-         response.sendRedirect("login");
+      String path = (String)request.getParameter("p");
+      String page;
+      if(path == null){
+         path = "";
       }
+      switch(path){
+         case "info": 
+            page = "/WEB-INF/pages/protected.jsp";
+            break;
+         default:
+            page = "/WEB-INF/pages/protected.jsp";
+      }
+      request.getRequestDispatcher(page).forward(request, response);
+
    }
+
 
    /**
     * Returns a short description of the servlet.

@@ -35,7 +35,12 @@ public class RegisterServlet extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
+      if(request.getSession().getAttribute("user") == null){
          request.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(request, response);
+      }
+      else{
+         response.sendRedirect("protected?p=info");
+      }
    }
 
    /**
@@ -55,7 +60,7 @@ public class RegisterServlet extends HttpServlet {
             request.getSession().setAttribute("fname", request.getParameter("fname"));
             request.getSession().setAttribute("lname", request.getParameter("lname"));
             request.getSession().setAttribute("email", request.getParameter("email"));
-            response.sendRedirect("protected");
+            response.sendRedirect("protected?p=info");
          }else{
             request.setAttribute("error", "Username not available");
             request.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(request, response);
