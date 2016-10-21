@@ -1,5 +1,6 @@
 package ch.heigvd.amt.bootcamp2.web;
 
+import ch.heigvd.amt.bootcamp2.model.User;
 import ch.heigvd.amt.bootcamp2.services.UserManager;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -52,9 +53,12 @@ public class LoginServlet extends HttpServlet {
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
       
-      
          if(userManager.checkLogin(request.getParameter("user"), request.getParameter("pwd"))){
-            request.getSession().setAttribute("user", request.getParameter("user"));
+            User user = userManager.loadUser(request.getParameter("user"));
+            request.getSession().setAttribute("user", user.getUsername());        
+            request.getSession().setAttribute("fname", user.getFirstName());
+            request.getSession().setAttribute("lname", user.getLastName());
+            request.getSession().setAttribute("email", user.getEmail());
             response.sendRedirect("protected?p=info");
          }else{
             request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);

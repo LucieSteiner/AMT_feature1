@@ -34,5 +34,12 @@ public class UserManager {
    public User loadUser(String username){
       return users.get(username);
    }
+   public void updateUser(User user){
+      users.replace(user.getUsername(), user);
+   }
+
+   public void deleteUser(String username) {
+      users.remove(username);
+   }
 }
 

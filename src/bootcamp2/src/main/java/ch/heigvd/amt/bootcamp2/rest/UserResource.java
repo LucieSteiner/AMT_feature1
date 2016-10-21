@@ -10,8 +10,10 @@ import static java.util.stream.Collectors.toList;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -68,6 +70,39 @@ public class UserResource {
     User user = userManager.loadUser(username);
     return toDTO(user);
   }
+  
+  @Path("{id}")
+  @PUT
+  @Consumes(MediaType.APPLICATION_JSON)
+  public Response updateUser(@PathParam(value = "id") String username, UserDTO dto){
+     User user = userManager.loadUser(username);
+     user.setFirstName(dto.getFirstName());
+     user.setLastName(dto.getLastName());
+     user.setEmail(dto.getEmail());
+     userManager.updateUser(user);
+     return Response
+             .accepted()
+             .build();
+  }
+  @Path("{id}")
+  @DELETE
+  public Response deleteUser(@PathParam(value="id") String username){
+     userManager.deleteUser(username);
+     return Response
+             .accepted()
+             .build();
+  }
+  @Path("{id}/password")
+  @PUT
+  public Response updatePassword(@PathParam(value="id") String username, UserRegistrationDTO dto){
+     User user = userManager.loadUser(username);
+     user.setPassword(dto.getPassword());
+     userManager.updateUser(user);
+     return Response
+             .accepted()
+             .build();
+  }
+  
   public User fromDTO(UserRegistrationDTO dto) {
     return new User(dto.getUsername(), dto.getPassword(), dto.getFirstName(), dto.getLastName(), dto.getEmail());
   }

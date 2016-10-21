@@ -33,7 +33,7 @@
          <section id="login">
             <div class="login-card">
                <h1>Log-in</h1><br>
-               <form>
+               <form method="post">
                  <input type="text" name="user" placeholder="Username">
                  <input type="password" name="pwd" placeholder="Password">
                  <input type="submit" name="login" class="login login-submit" value="login">

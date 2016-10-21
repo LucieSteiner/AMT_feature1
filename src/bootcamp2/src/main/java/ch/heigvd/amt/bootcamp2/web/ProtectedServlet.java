@@ -34,12 +34,14 @@ public class ProtectedServlet extends HttpServlet {
       }
       switch(path){
          case "info": 
-            page = "/WEB-INF/pages/protected.jsp";
+            request.getRequestDispatcher("/WEB-INF/pages/protected.jsp").forward(request, response);
             break;
+         case "listUserAccounts":
+            request.getRequestDispatcher("/WEB-INF/pages/listUserAccounts.html").forward(request, response);
          default:
-            page = "/WEB-INF/pages/protected.jsp";
+            request.getRequestDispatcher("/WEB-INF/pages/protected.jsp").forward(request, response);
       }
-      request.getRequestDispatcher(page).forward(request, response);
+      
 
    }
 
