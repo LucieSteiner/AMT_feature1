@@ -55,7 +55,7 @@ public class RegisterServlet extends HttpServlet {
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
       if(request.getParameter("pwd").equals(request.getParameter("pwd_check"))){
-         if(userManager.register(new User(request.getParameter("user"), request.getParameter("pwd"), request.getParameter("fname"), request.getParameter("lname"), request.getParameter("email")))){
+         if(userManager.create(new User(request.getParameter("user"), request.getParameter("pwd"), request.getParameter("fname"), request.getParameter("lname"), request.getParameter("email")))){
             request.getSession().setAttribute("user", request.getParameter("user"));
             request.getSession().setAttribute("fname", request.getParameter("fname"));
             request.getSession().setAttribute("lname", request.getParameter("lname"));

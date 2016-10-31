@@ -50,7 +50,7 @@ public class UserResource {
   @Consumes(MediaType.APPLICATION_JSON)
   public Response createUser(UserRegistrationDTO userDTO) {
     User user = fromDTO(userDTO);
-    userManager.register(user);
+    userManager.create(user);
     String username = user.getUsername();
     URI href = uriInfo
       .getBaseUriBuilder()
@@ -67,7 +67,7 @@ public class UserResource {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public UserDTO getUser(@PathParam(value = "id") String username) {
-    User user = userManager.loadUser(username);
+    User user = userManager.findOne(username);
     return toDTO(user);
   }
   
@@ -75,11 +75,11 @@ public class UserResource {
   @PUT
   @Consumes(MediaType.APPLICATION_JSON)
   public Response updateUser(@PathParam(value = "id") String username, UserDTO dto){
-     User user = userManager.loadUser(username);
+     User user = userManager.findOne(username);
      user.setFirstName(dto.getFirstName());
      user.setLastName(dto.getLastName());
      user.setEmail(dto.getEmail());
-     userManager.updateUser(user);
+     userManager.update(user);
      return Response
              .accepted()
              .build();
@@ -87,7 +87,7 @@ public class UserResource {
   @Path("{id}")
   @DELETE
   public Response deleteUser(@PathParam(value="id") String username){
-     userManager.deleteUser(username);
+     userManager.delete(username);
      return Response
              .accepted()
              .build();
@@ -95,9 +95,9 @@ public class UserResource {
   @Path("{id}/password")
   @PUT
   public Response updatePassword(@PathParam(value="id") String username, UserRegistrationDTO dto){
-     User user = userManager.loadUser(username);
+     User user = userManager.findOne(username);
      user.setPassword(dto.getPassword());
-     userManager.updateUser(user);
+     userManager.update(user);
      return Response
              .accepted()
              .build();

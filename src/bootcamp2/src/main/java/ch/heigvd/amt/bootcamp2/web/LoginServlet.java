@@ -52,9 +52,9 @@ public class LoginServlet extends HttpServlet {
    @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
-      
-         if(userManager.checkLogin(request.getParameter("user"), request.getParameter("pwd"))){
-            User user = userManager.loadUser(request.getParameter("user"));
+         User user = userManager.findOne(request.getParameter("user"));
+         log("COUCOU"+user.getPassword());
+         if(user != null && user.getPassword().equals(request.getParameter("pwd"))){
             request.getSession().setAttribute("user", user.getUsername());        
             request.getSession().setAttribute("fname", user.getFirstName());
             request.getSession().setAttribute("lname", user.getLastName());

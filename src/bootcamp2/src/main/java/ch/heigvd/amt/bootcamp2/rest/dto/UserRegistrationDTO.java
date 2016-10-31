@@ -19,5 +19,6 @@ public class UserRegistrationDTO extends UserDTO{
    public void setPassword(){
       this.password = password;
    }
+
    
 }
