@@ -5,6 +5,7 @@ import ch.heigvd.amt.bootcamp2.rest.dto.UserDTO;
 import ch.heigvd.amt.bootcamp2.rest.dto.UserRegistrationDTO;
 import ch.heigvd.amt.bootcamp2.services.UserManager;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import static java.util.stream.Collectors.toList;
 import javax.ejb.EJB;
@@ -40,6 +41,7 @@ public class UserResource {
   @Produces(MediaType.APPLICATION_JSON)
   public List<UserDTO> getPeople(@QueryParam(value = "byName" ) String byName) {
     List<User> users = userManager.findAllUsers();
+    
     return users.stream()
       .filter(p -> byName == null || p.getUsername().equalsIgnoreCase(byName))
       .map(p -> toDTO(p))

@@ -17,7 +17,10 @@
 <!-- Header -->
         <header id="header">
                 <div class="inner">
-                        <a href="protected" class="logo">AMT</a>
+                        <span class="logo">
+                           <a href="login" class="button">Log in</a>
+                           <a href="register" class="button">Register</a>
+                        </span>
                         <nav id="nav">
                                 <a href="protected">Home</a>
                         </nav>

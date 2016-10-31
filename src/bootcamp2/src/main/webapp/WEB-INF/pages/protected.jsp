@@ -17,9 +17,12 @@
 <!-- Header -->
         <header id="header">
                 <div class="inner">
-                        <a href="protected" class="logo">AMT</a>
+                      <span class="logo">
+                           <a href="logout" class="button">Log out</a>
+                      </span>
                         <nav id="nav">
-                                <a href="protected">Home</a>
+                                <a href="protected?p=info">Profile</a>
+                                <a href="protected?p=listUserAccounts">Accounts</a>
                         </nav>
                         <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
                 </div>
@@ -30,8 +33,7 @@
             <h1>Welcome to AMT</h1>
             <p>An exclusive HEIG-VD course by Olivier Liechti</p>
          </section>
-         <section id="welcome">
-            <h2>Welcome ${sessionScope.user}!</h2>
+         <section class="container">
             <h3>Your information: </h3>
             <table>
                <tr>
@@ -48,7 +50,6 @@
                </tr>
             
             </table>
-               <a id="logout" href="logout">Logout</a>
             
          </section>
 <!-- Footer -->

@@ -11,9 +11,12 @@
 <!-- Header -->
         <header id="header">
                 <div class="inner">
-                        <a href="protected" class="logo">AMT</a>
+                       <span class="logo">
+                           <a href="logout" class="button">Log out</a>
+                      </span>
                         <nav id="nav">
-                                <a href="protected">Home</a>
+                                <a href="protected?p=info">Profile</a>
+                                <a href="protected?p=listUserAccounts">Accounts</a>
                         </nav>
                         <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
                 </div>
@@ -24,40 +27,23 @@
             <h1>Welcome to AMT</h1>
             <p>An exclusive HEIG-VD course by Olivier Liechti</p>
          </section>
-         <section class="content">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="box">
-                <div class="box-header">
-                  <h3 class="box-title">Hover Data Table</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12">
-                        <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
-                          <thead>
-                            <tr role="row">
-                              <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">First name</th>
-                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Last name</th>
-                              <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">User name</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-
-
-                <!-- /.box -->
-              </div>
-              <!-- /.col -->
-            </div>
-            <!-- /.row -->
+         <section class="container">
+              <h3>User Accounts</h3>
+                
+               <div id="example2_wrapper">
+                     <table id="example2" role="grid" aria-describedby="example2_info">
+                       <thead>
+                         <tr role="row">
+                           <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending">User name</th>
+                           <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">First name</th>
+                           <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Last name</th>
+                           <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">E-mail</th>
+                         </tr>
+                       </thead>
+                       <tbody>
+                       </tbody>
+                     </table>
+               </div>
         </section>
         <!-- /.content -->
 <!-- Footer -->
@@ -83,21 +69,9 @@
         <script src="assets/js/skel.min.js"></script>
         <script src="assets/js/util.js"></script>
         <script src="assets/js/main.js"></script>
-         <!-- jQuery 2.2.3 -->
-      <script async="" src="//www.google-analytics.com/analytics.js"></script><script src="./plugins/jQuery/jquery-2.2.3.min.js"></script>
-      <!-- Bootstrap 3.3.6 -->
-      <script src="./bootstrap/js/bootstrap.min.js"></script>
+
       <!-- DataTables -->
       <script src="./plugins/datatables/jquery.dataTables.min.js"></script>
-      <script src="./plugins/datatables/dataTables.bootstrap.min.js"></script>
-      <!-- SlimScroll -->
-      <script src="./plugins/slimScroll/jquery.slimscroll.min.js"></script>
-      <!-- FastClick -->
-      <script src="./plugins/fastclick/fastclick.js"></script>
-      <!-- AdminLTE App -->
-      <script src="./dist/js/app.min.js"></script>
-      <!-- AdminLTE for demo purposes -->
-      <script src="./dist/js/demo.js"></script>
       <!-- page script -->
       <script>
         $(function () {
@@ -107,9 +81,10 @@
               dataSrc: ""
             },
             columns: [
+              {data: "username"},
               {data: "firstName"},
               {data: "lastName"},
-              {data: "username"}
+              {data: "email"}
             ]
           });
         });

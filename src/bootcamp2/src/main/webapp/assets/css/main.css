@@ -60,6 +60,7 @@
 /* Containers */
 
 	.container {
+               margin-top: 10px;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -2744,14 +2745,12 @@
 		#header .logo {
 			color: #ffffff;
 			display: inline-block;
-			font-weight: 600;
 			height: inherit;
 			left: 0;
 			line-height: inherit;
 			margin: 0;
 			padding: 0;
 			position: absolute;
-			top: 0;
 			font-size: 1em;
 		}
 
@@ -2765,14 +2764,11 @@
 			color: inherit;
 			text-decoration: none;
 			font-size: .8em;
+                        width: 100px;
 		}
 
 			#header a:hover {
 				color: #ffffff;
-			}
-
-			#header a:last-child {
-				padding-right: 0;
 			}
 
 			#header a.navPanelToggle {
@@ -3158,3 +3154,58 @@
   text-align: center;
   font-size: 12px;
 }
+
+div.dataTables_length label {
+	font-weight: normal;
+	text-align: left;
+	white-space: nowrap;
+}
+
+div.dataTables_length select {
+	width: 75px;
+	display: inline-block;
+}
+
+div.dataTables_filter {
+	text-align: right;
+}
+
+div.dataTables_filter label {
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+div.dataTables_filter input {
+	margin-left: 0.5em;
+	display: inline-block;
+	width: auto;
+}
+
+div.dataTables_info {
+	padding-top: 8px;
+	white-space: nowrap;
+}
+
+div.dataTables_paginate {
+	margin: 0;
+	white-space: nowrap;
+	text-align: right;
+}
+
+div.dataTables_paginate ul.pagination {
+	margin: 2px 0;
+	white-space: nowrap;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+      box-sizing:border-box;
+      display:inline-block;
+      min-width:1.5em;
+      padding:0.5em 1em;
+      margin-left:2px;
+      text-align:center;
+      text-decoration:none;
+      color:#333;
+      border:1px solid transparent;
+}
+

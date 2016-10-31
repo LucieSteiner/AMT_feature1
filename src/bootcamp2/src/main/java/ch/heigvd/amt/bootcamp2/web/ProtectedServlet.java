@@ -38,6 +38,7 @@ public class ProtectedServlet extends HttpServlet {
             break;
          case "listUserAccounts":
             request.getRequestDispatcher("/WEB-INF/pages/listUserAccounts.html").forward(request, response);
+            break;
          default:
             request.getRequestDispatcher("/WEB-INF/pages/protected.jsp").forward(request, response);
       }

@@ -65,7 +65,7 @@ public class UserManager {
             String lastName = result.getString("lastName");
             String email = result.getString("email");
             String password = result.getString("password");
-            users.add(new User(username, firstName, lastName, email, password));
+            users.add(new User(username, password, firstName, lastName, email));
          }
          connection.close();
       } catch (SQLException ex) {
