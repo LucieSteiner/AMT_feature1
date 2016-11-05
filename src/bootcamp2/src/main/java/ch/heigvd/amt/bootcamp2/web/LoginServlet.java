@@ -3,27 +3,24 @@ package ch.heigvd.amt.bootcamp2.web;
 import ch.heigvd.amt.bootcamp2.model.User;
 import ch.heigvd.amt.bootcamp2.services.UserManager;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.ejb.EJB;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author Lucie
+ * Handles access to the login page and login attempts
+ * 
+ * @author Lucie Steiner
  */
 public class LoginServlet extends HttpServlet {
 
-   
    @EJB
    UserManager userManager;
-   
 
    /**
-    * Handles the HTTP <code>GET</code> method.
+    * Handles access to the login page
     *
     * @param request servlet request
     * @param response servlet response
@@ -33,16 +30,17 @@ public class LoginServlet extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
-      if(request.getSession().getAttribute("user") == null){
+      
+      //Only allows access if the user is not connected, otherwise, it is redirected to its profile
+      if (request.getSession().getAttribute("user") == null) {
          request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
-      }
-      else{
+      } else {
          response.sendRedirect("protected?p=info");
       }
    }
 
    /**
-    * Handles the HTTP <code>POST</code> method.
+    * Handles login attempts
     *
     * @param request servlet request
     * @param response servlet response
@@ -52,27 +50,26 @@ public class LoginServlet extends HttpServlet {
    @Override
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
-         User user = userManager.findOne(request.getParameter("user"));
-         if(user != null && user.getPassword().equals(request.getParameter("pwd"))){
-            request.getSession().setAttribute("user", user.getUsername());        
-            request.getSession().setAttribute("fname", user.getFirstName());
-            request.getSession().setAttribute("lname", user.getLastName());
-            request.getSession().setAttribute("email", user.getEmail());
-            response.sendRedirect("protected?p=info");
-         }else{
-            request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
-         }
       
-   }
+      //Searches for the user in the database
+      User user = userManager.findOne(request.getParameter("user"));
+      
+      //Checks that the user exists and that the password is right
+      if (user != null && user.getPassword().equals(request.getParameter("pwd"))) {
+         
+         //Sets all session variables and redirects the user to its profile
+         request.getSession().setAttribute("user", user.getUsername());
+         request.getSession().setAttribute("fname", user.getFirstName());
+         request.getSession().setAttribute("lname", user.getLastName());
+         request.getSession().setAttribute("email", user.getEmail());
+         response.sendRedirect("protected?p=info");
+      } else {
+         
+         //Sends an error and reloads the login page
+         request.setAttribute("error", "Username or password is wrong");
+         request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
+      }
 
-   /**
-    * Returns a short description of the servlet.
-    *
-    * @return a String containing servlet description
-    */
-   @Override
-   public String getServletInfo() {
-      return "Short description";
    }
 
 }

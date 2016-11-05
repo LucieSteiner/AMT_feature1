@@ -6,21 +6,20 @@
 package ch.heigvd.amt.bootcamp2.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author Lucie
+ * Handles the user's logout
+ * 
+ * @author Lucie Steiner
  */
 public class LogoutServlet extends HttpServlet {
 
-   
    /**
-    * Handles the HTTP <code>GET</code> method.
+    * Handles logout by removing all session variables and redirects the user to login page
     *
     * @param request servlet request
     * @param response servlet response
@@ -30,12 +29,11 @@ public class LogoutServlet extends HttpServlet {
    @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
-      request.getSession().removeAttribute("user");    
+      request.getSession().removeAttribute("user");
       request.getSession().removeAttribute("fname");
       request.getSession().removeAttribute("lname");
       request.getSession().removeAttribute("email");
       response.sendRedirect("login");
    }
-   
 
 }

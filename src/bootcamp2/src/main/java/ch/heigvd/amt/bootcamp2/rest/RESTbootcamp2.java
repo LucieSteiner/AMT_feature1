@@ -6,16 +6,17 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 /**
- *
- * @author Olivier Liechti
+ * REST API Configuration
+ * 
+ * @author Lucie Steiner
  */
 @ApplicationPath("/api")
-public class RESTbootcamp2  extends Application {
+public class RESTbootcamp2 extends Application {
 
-    @Override
-    public Map<String, Object> getProperties() {
-        Map<String, Object> properties = new HashMap<>();
-        properties.put("jersey.config.disableMoxyJson", true);
-        return properties;
-    }
+   @Override
+   public Map<String, Object> getProperties() {
+      Map<String, Object> properties = new HashMap<>();
+      properties.put("jersey.config.disableMoxyJson", true);
+      return properties;
+   }
 }

@@ -1,98 +1,90 @@
-
 <!DOCTYPE html>
 <html>
    <head>
       <link rel="stylesheet" href="assets/css/main.css" />
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>JSP Page</title>
+      <title>User Accounts</title>
    </head>
    <body>
 
-<!-- Header -->
-        <header id="header">
-                <div class="inner">
-                       <span class="logo">
-                           <a href="logout" class="button">Log out</a>
-                      </span>
-                        <nav id="nav">
-                                <a href="protected?p=info">Profile</a>
-                                <a href="protected?p=listUserAccounts">Accounts</a>
-                        </nav>
-                        <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-                </div>
-        </header>
+      <!-- Header -->
+      <header id="header">
+         <div class="inner">
+            <span class="logo">
+               <a href="logout" class="button">Log out</a>
+            </span>
+            <nav id="nav">
+               <a href="protected?p=info">Profile</a>
+               <a href="protected?p=listUserAccounts">Accounts</a>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+         </div>
+      </header>
 
-<!-- Banner -->
-         <section id="banner">
-            <h1>Welcome to AMT</h1>
-            <p>An exclusive HEIG-VD course by Olivier Liechti</p>
-         </section>
-         <section class="container">
-              <h3>User Accounts</h3>
-                
-               <div id="example2_wrapper">
-                     <table id="example2" role="grid" aria-describedby="example2_info">
-                       <thead>
-                         <tr role="row">
-                           <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending">User name</th>
-                           <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">First name</th>
-                           <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Last name</th>
-                           <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">E-mail</th>
-                         </tr>
-                       </thead>
-                       <tbody>
-                       </tbody>
-                     </table>
+      <!-- Banner -->
+      <section id="banner">
+         <h1>Welcome to AMT</h1>
+         <p>An exclusive HEIG-VD course by Olivier Liechti</p>
+      </section>
+      <!-- Content -->
+      <section class="container">
+         <h3>User Accounts</h3>
+
+         <div id="example2_wrapper">
+            <table id="example2" role="grid" aria-describedby="example2_info">
+               <thead>
+                  <tr role="row">
+                     <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column descending">User name</th>
+                     <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">First name</th>
+                     <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Last name</th>
+                     <th tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">E-mail</th>
+                  </tr>
+               </thead>
+               <tbody>
+               </tbody>
+            </table>
+         </div>
+      </section>
+      <!-- Footer -->
+      <footer id="footer">
+         <div class="inner">
+            <div class="flex">
+               <div class="copyright">
+                  &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
                </div>
-        </section>
-        <!-- /.content -->
-<!-- Footer -->
-        <footer id="footer">
-                <div class="inner">
-                        <div class="flex">
-                                <div class="copyright">
-                                        &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
-                                </div>
-                                <ul class="icons">
-                                        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                                        <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                                        <li><a href="#" class="icon fa-linkedin"><span class="label">linkedIn</span></a></li>
-                                        <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li>
-                                        <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li>
-                                </ul>
-                        </div>
-                </div>
-        </footer>
+            </div>
+         </div>
+      </footer>
 
-<!-- Scripts -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/skel.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <script src="assets/js/main.js"></script>
+      <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/skel.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
 
       <!-- DataTables -->
       <script src="./plugins/datatables/jquery.dataTables.min.js"></script>
       <!-- page script -->
       <script>
-        $(function () {
-          $("#example2").DataTable({
-            ajax: {
-              url: "api/users",
-              dataSrc: ""
-            },
-            columns: [
-              {data: "username"},
-              {data: "firstName"},
-              {data: "lastName"},
-              {data: "email"}
-            ]
-          });
-        });
+         $(function () {
+            $("#example2").DataTable({
+               ajax: {
+                  url: "api/users",
+                  dataSrc: ""
+               },
+               columns: [
+                  {data: "username"},
+                  {data: "firstName"},
+                  {data: "lastName"},
+                  {data: "email"}
+               ]
+            });
+         });
       </script>
 
-
       <script type="text/javascript">(function () {
-          window.SIG_EXT = {};
-        })()</script>
-	</body>
+            window.SIG_EXT = {};
+         })()
+      </script>
+   </body>
 </html>

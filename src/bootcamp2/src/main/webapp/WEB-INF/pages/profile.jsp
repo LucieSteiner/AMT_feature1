@@ -1,5 +1,5 @@
 <%-- 
-    Document   : login
+    Document   : profile
     Author     : Lucie Steiner
 --%>
 
@@ -9,7 +9,7 @@
    <head>
       <link rel="stylesheet" href="assets/css/main.css" />
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Log in</title>
+      <title>Your profile</title>
    </head>
    <body>
 
@@ -17,11 +17,11 @@
       <header id="header">
          <div class="inner">
             <span class="logo">
-               <a href="login" class="button">Log in</a>
-               <a href="register" class="button">Register</a>
+               <a href="logout" class="button">Log out</a>
             </span>
             <nav id="nav">
-               <a href="protected">Home</a>
+               <a href="protected?p=info">Profile</a>
+               <a href="protected?p=listUserAccounts">Accounts</a>
             </nav>
             <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
          </div>
@@ -34,22 +34,24 @@
       </section>
       
       <!-- Content -->
-      <section id="login">
-         <div class="login-card">
-            <h1>Log-in</h1><br>
-            <span class="error">${error}</span>
-            <form method="post">
-               <input type="text" name="user" placeholder="Username">
-               <input type="password" name="pwd" placeholder="Password">
-               <input type="submit" name="login" class="login login-submit" value="login">
-            </form>
-
-            <div class="login-help">
-               <a href="register">No account yet? Register here</a>
-            </div>
-         </div>
+      <section class="container">
+         <h3>Your information: </h3>
+         <table>
+            <tr>
+               <td><label>Firstname: </label></td>
+               <td>${sessionScope.fname}</td>
+            </tr>
+            <tr>
+               <td><label>Lastname: </label></td>
+               <td>${sessionScope.lname}</td>
+            </tr>
+            <tr>
+               <td><label>Email: </label></td>
+               <td>${sessionScope.email}</td>
+            </tr>
+         </table>
       </section>
-      
+            
       <!-- Footer -->
       <footer id="footer">
          <div class="inner">
