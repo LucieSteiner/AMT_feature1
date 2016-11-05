@@ -9,7 +9,7 @@ The Rest API allows to manage users with the following actions:
 5.  Update a particular user's password
 6.  Delete a user
 
-A postman script with all the corresponding requests is available [here](/AMT.postman_colection.json). There are two variables that need to be changed:
+A postman script with all the corresponding requests is available [here](AMT.postman_colection.json). There are two variables that need to be changed:
 
 - url: the address of the application server
 - user: the username of the user to delete/update/retrieve

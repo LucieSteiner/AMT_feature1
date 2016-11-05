@@ -11,4 +11,4 @@ If you change the code and build it again, you will need to replace /images/glas
 
 ## About the "User Accounts" page ##
 
-You will probably get an error on the first you try to access this page. Just reload it. The same problem might happen with the first request you will send to the Rest API, just send it again. Hopefully, this will be fixed soon! 
+You will probably get an error on the first time you try to access this page. Just reload it. The same problem might happen with the first request you will send to the Rest API, just send it again. Hopefully, this will be fixed soon! 
